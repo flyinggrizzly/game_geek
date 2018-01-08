@@ -1,0 +1,150 @@
+{
+  "items"=>{
+    "item"=>{
+      "thumbnail"=>"https://cf.geekdo-images.com/images/pic722524_t.jpg",
+      "image"=>"https://cf.geekdo-images.com/images/pic722524.jpg",
+      "name"=>[
+        {
+          "type"=>"primary",
+          "sortindex"=>"1",
+          "value"=>"Final Fantasy VIII"
+        },
+        {
+          "type"=>"alternate",
+          "sortindex"=>"1",
+          "value"=>"Final Fantasy 8"
+        }
+      ],
+      "description"=>"User Summary:&#10;&#10;Final Fantasy VIII places the player in control of Squall, a fledgling new member of an elite military team.  Through a series of shocking events (and mysterious dreams), Squall is thrust into a conflict beyond imagination.  Along the way, you will be joined by 5 others who share your mission as the stakes become increasingly high.&#10;In this game, you are given a large amount of freedom on how you want to customize your characters by using the new &quot;draw&quot; system.  In this system, you &quot;draw&quot; magic power either from monsters or from &quot;draw points&quot; scattered around the world and then bind the magic to yourself which increases your skills in different ways.  Also, the summon creatures that you capture along the way are highly customizable and you will using their experience points to augment their abilities as you see fit.&#10;&#10;Final Fantasy VIII was released for the PS in 1999 and for the PC later that year.&#10;&#10;",
+      "link"=>[
+        {
+          "type"=>"videogameplatform",
+          "id"=>"4433",
+          "value"=>"PlayStation"
+        },
+        {
+          "type"=>"videogameplatform",
+          "id"=>"4435",
+          "value"=>"PlayStation 3"
+        },
+        {
+          "type"=>"videogameplatform",
+          "id"=>"10373",
+          "value"=>"PlayStation Vita"
+        },
+        {
+          "type"=>"videogameplatform",
+          "id"=>"4432",
+          "value"=>"PSP"
+        },
+        {
+          "type"=>"videogameplatform",
+          "id"=>"4977",
+          "value"=>"Windows"
+        },
+        {
+          "type"=>"videogamegenre",
+          "id"=>"2155",
+          "value"=>"RPG"
+        },
+        {
+          "type"=>"videogametheme",
+          "id"=>"2148",
+          "value"=>"Fantasy"
+        },
+        {
+          "type"=>"videogamefranchise",
+          "id"=>"4859",
+          "value"=>"Final Fantasy"
+        },
+        {
+          "type"=>"videogamefranchise",
+          "id"=>"6403",
+          "value"=>"Platinum Range (Best Selling PlayStation Games, PAL)"
+        },
+        {
+          "type"=>"videogamemode",
+          "id"=>"2149",
+          "value"=>"Single-Player"
+        },
+        {
+          "type"=>"videogamedeveloper",
+          "id"=>"6468",
+          "value"=>"Square Enix Co., Ltd."
+        },
+        {
+          "type"=>"videogamedeveloper",
+          "id"=>"11892",
+          "value"=>"Squaresoft"
+        },
+        {
+          "type"=>"videogamepublisher",
+          "id"=>"971",
+          "value"=>"EIDOS Interactive"
+        },
+        {
+          "type"=>"videogamepublisher",
+          "id"=>"6468",
+          "value"=>"Square Enix Co., Ltd."
+        },
+        {
+          "type"=>"videogamepublisher",
+          "id"=>"11892",
+          "value"=>"Squaresoft"
+        }
+      ],
+      "minplayers"=>{
+        "value"=>"1"
+      },
+      "maxplayers"=>{
+        "value"=>"1"
+      },
+      "releasedate"=>{
+        "value"=>"1999-02-11"
+      },
+      "type"=>"videogame",
+      "id"=>"68547"
+    },
+    "termsofuse"=>"http://boardgamegeek.com/xmlapi/termsofuse"
+  }
+}, @response=#<Net: :HTTPOK 200 OK readbody=true>, @headers={
+  "server"=>[
+    "nginx/1.12.2"
+  ],
+  "date"=>[
+    "Tue, 09 Jan 2018 07:07:17 GMT"
+  ],
+  "content-type"=>[
+    "text/xml; charset=\"UTF-8\""
+  ],
+  "transfer-encoding"=>[
+    "chunked"
+  ],
+  "connection"=>[
+    "close"
+  ],
+  "vary"=>[
+    "Accept-Encoding"
+  ],
+  "x-powered-by"=>[
+    "PHP/5.5.38"
+  ],
+  "set-cookie"=>[
+    "SessionID=d0bd732415e46564a3b9fb26833d9ff94e9f1076; expires=Tue, 09-Jan-2018 08:07:17 GMT; Max-Age=3600; path=/; domain=.boardgamegeek.com"
+  ],
+  "expires"=>[
+    "Thu, 19 Nov 1981 08:52:00 GMT"
+  ],
+  "cache-control"=>[
+    "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+  ],
+  "pragma"=>[
+    "no-cache"
+  ],
+  "access-control-allow-origin"=>[
+    "*"
+  ],
+  "x-fastcgi-cache"=>[
+    "MISS"
+  ]
+}

@@ -1,0 +1,582 @@
+{
+  "items"=>{
+    "item"=>{
+      "thumbnail"=>"https://cf.geekdo-images.com/images/pic2197079_t.jpg",
+      "image"=>"https://cf.geekdo-images.com/images/pic2197079.jpg",
+      "name"=>[
+        {
+          "type"=>"primary",
+          "sortindex"=>"1",
+          "value"=>"Player's Handbook (D&D 5e)"
+        },
+        {
+          "type"=>"alternate",
+          "sortindex"=>"1",
+          "value"=>"Manual del Jugador"
+        },
+        {
+          "type"=>"alternate",
+          "sortindex"=>"1",
+          "value"=>"PHB"
+        },
+        {
+          "type"=>"alternate",
+          "sortindex"=>"1",
+          "value"=>"Spielerhandbuch"
+        }
+      ],
+      "link"=>[
+        {
+          "type"=>"rpg",
+          "id"=>"17181",
+          "value"=>"Dungeons & Dragons (5th Edition)"
+        },
+        {
+          "type"=>"rpggenre",
+          "id"=>"155",
+          "value"=>"Fantasy (High Fantasy)"
+        },
+        {
+          "type"=>"rpgcategory",
+          "id"=>"2083",
+          "value"=>"Core Rules (min needed to play)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2101",
+          "value"=>"Attribute/Stat Based (STR, CON, PER, etc)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2095",
+          "value"=>"Class Based (Pilot, Wizard, Scientist, etc)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2088",
+          "value"=>"Dice (Primarily d20)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2096",
+          "value"=>"Level Based (Earn XP and level up)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2100",
+          "value"=>"Point Based (allocate points to get skills, powers, etc)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2138",
+          "value"=>"Progression Tree (Skills, professions, magic abilities, etc.)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2133",
+          "value"=>"Race Based (Player Race/Species affects gameplay)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2134",
+          "value"=>"Random Attribute Generation (during Character Creation)"
+        },
+        {
+          "type"=>"rpgmechanic",
+          "id"=>"2094",
+          "value"=>"Skill Based (buy or gain skills)"
+        },
+        {
+          "type"=>"rpgpublisher",
+          "id"=>"157",
+          "value"=>"Asmodee"
+        },
+        {
+          "type"=>"rpgpublisher",
+          "id"=>"2973",
+          "value"=>"Edge Entertainment"
+        },
+        {
+          "type"=>"rpgpublisher",
+          "id"=>"11420",
+          "value"=>"Gale Force Nine, LLC"
+        },
+        {
+          "type"=>"rpgpublisher",
+          "id"=>"6174",
+          "value"=>"Ulisses Spiele"
+        },
+        {
+          "type"=>"rpgpublisher",
+          "id"=>"13",
+          "value"=>"Wizards of the Coast"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"16197",
+          "value"=>"Jeremy Crawford"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"13108",
+          "value"=>"Mike Mearls"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"9993",
+          "value"=>"Bruce R. Cordell"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"15913",
+          "value"=>"Peter Lee"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"13240",
+          "value"=>"Robert J. Schwalb"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"13261",
+          "value"=>"Rodney Thompson"
+        },
+        {
+          "type"=>"rpgdesigner",
+          "id"=>"12989",
+          "value"=>"James Wyatt"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"28288",
+          "value"=>"Tyler Jacobson"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"17124",
+          "value"=>"Steve Argyle"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"23060",
+          "value"=>"Tom Babbey"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"13948",
+          "value"=>"Daren Bader"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"13419",
+          "value"=>"Drew Baker"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"19685",
+          "value"=>"Mark Behm"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"19626",
+          "value"=>"Eric Belisle"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"50887",
+          "value"=>"Noah Bradley"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"61572",
+          "value"=>"Christopher Bradley"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"43072",
+          "value"=>"Sam Burley"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"49412",
+          "value"=>"Clint Cearley"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"32997",
+          "value"=>"Milivoj Ceran"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"67706",
+          "value"=>"Sidharth Chaturvedi"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77247",
+          "value"=>"Jedd Chevrier"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"76361",
+          "value"=>"Barry Craig"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"41877",
+          "value"=>"jD"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77249",
+          "value"=>"Florian de Gesincourt"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"17275",
+          "value"=>"Allen Douglas"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"11994",
+          "value"=>"Jesper Ejsing"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77248",
+          "value"=>"Craig Elliott"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"14937",
+          "value"=>"Wayne England"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"14699",
+          "value"=>"Scott Fischer"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"15020",
+          "value"=>"Randy Gallegos"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"58126",
+          "value"=>"Justin Gerard"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"14947",
+          "value"=>"Lars Grant-West"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"62470",
+          "value"=>"Bree Heiss"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"13962",
+          "value"=>"Jon Hodgson"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"14202",
+          "value"=>"Ralph Horsley"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"50185",
+          "value"=>"Lake Hurwitz"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"63868",
+          "value"=>"Julian Kok"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"24244",
+          "value"=>"Kekai Kotaki"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77250",
+          "value"=>"Olly Lawson"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"76376",
+          "value"=>"Raphael Lübke"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77251",
+          "value"=>"Titus Lunter"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"17057",
+          "value"=>"Sławomir Maniak"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"47549",
+          "value"=>"Brynn Metheney"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"36461",
+          "value"=>"Aaron Miller"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"5249",
+          "value"=>"Christopher Moeller"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"44813",
+          "value"=>"Mark Molnar"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"39678",
+          "value"=>"Scott Murphy"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"13976",
+          "value"=>"William O'Connor"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"19628",
+          "value"=>"Héctor Ortiz"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"35766",
+          "value"=>"David Palumbo"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"44810",
+          "value"=>"Alessandra Pisano"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"15291",
+          "value"=>"Claudio Pozas"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"50885",
+          "value"=>"Rob Rey"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"12316",
+          "value"=>"Wayne Reynolds"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"64504",
+          "value"=>"Aaron J. Riley"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"14614",
+          "value"=>"Chris Seaman"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"39334",
+          "value"=>"Cynthia Sheppard"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"25105",
+          "value"=>"Craig J. Spearing"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"19631",
+          "value"=>"John Stanko"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"14349",
+          "value"=>"Matthew Stawicki"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"74929",
+          "value"=>"Alex Stone"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"16823",
+          "value"=>"Emi Tanji"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77252",
+          "value"=>"Thom Tenery"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"30359",
+          "value"=>"Cory Trego-Erdner"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"12077",
+          "value"=>"Beth Trott"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77253",
+          "value"=>"Autumn Rain Turkel"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"77254",
+          "value"=>"Jose Vega"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"11990",
+          "value"=>"Tyler Walpole"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"24739",
+          "value"=>"Richard Whitters"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"15022",
+          "value"=>"Eva Widermann"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"16453",
+          "value"=>"Ben Wootten"
+        },
+        {
+          "type"=>"rpgartist",
+          "id"=>"13243",
+          "value"=>"Kieran Yanner"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"19115",
+          "value"=>"Greg Bilsland"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"9185",
+          "value"=>"Michele Carter"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"14508",
+          "value"=>"Daniel Gelon"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"18160",
+          "value"=>"Scott Fitzgerald Gray"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"17726",
+          "value"=>"Kate Irwin"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"19121",
+          "value"=>"Mari Kolkowsky"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"18071",
+          "value"=>"Shauna Wolf Narciso"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"14725",
+          "value"=>"Christopher Perkins"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"76360",
+          "value"=>"Melissa Rapier"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"16363",
+          "value"=>"Jon Schindehette"
+        },
+        {
+          "type"=>"rpgproducer",
+          "id"=>"13255",
+          "value"=>"Chris Sims"
+        }
+      ],
+      "description"=>"Back-cover text:&#10;&#10;ARM YOURSELF FOR ADVENTURE&#10;&#10;The Player's Handbook is the essential reference for every Dungeons &amp; Dragons roleplayer. It contains rules for character creation and advancement, backgrounds and skills, exploration and combat, equipment, spells, and much more.&#10;&#10;Use this book to create exciting characters from among the most iconic D&amp;D races and classes.&#10;&#10;Dungeons &amp; Dragons immerses you in a world of adventure. Explore ancient ruins and deadly dungeons. Battle monsters while searching for legendary treasures. Gain experience and power as you trek across uncharted lands with your companions.&#10;&#10;The world needs heroes. Will you answer the call?&#10;&#10;",
+      "yearpublished"=>{
+        "value"=>"2014"
+      },
+      "seriescode"=>{
+        "value"=>""
+      },
+      "type"=>"rpgitem",
+      "id"=>"162994"
+    },
+    "termsofuse"=>"http://boardgamegeek.com/xmlapi/termsofuse"
+  }
+}, @response=#<Net: :HTTPOK 200 OK readbody=true>, @headers={
+  "server"=>[
+    "nginx/1.12.2"
+  ],
+  "date"=>[
+    "Mon, 08 Jan 2018 20:11:14 GMT"
+  ],
+  "content-type"=>[
+    "text/xml; charset=\"UTF-8\""
+  ],
+  "transfer-encoding"=>[
+    "chunked"
+  ],
+  "connection"=>[
+    "close"
+  ],
+  "vary"=>[
+    "Accept-Encoding"
+  ],
+  "x-powered-by"=>[
+    "PHP/5.5.38"
+  ],
+  "set-cookie"=>[
+    "SessionID=b2b5ac1bd6f13ab046ad1513b456fc92527c9caa; expires=Mon, 08-Jan-2018 21:11:14 GMT; Max-Age=3600; path=/; domain=.boardgamegeek.com"
+  ],
+  "expires"=>[
+    "Thu, 19 Nov 1981 08:52:00 GMT"
+  ],
+  "cache-control"=>[
+    "no-store, no-cache, must-revalidate, post-check=0, pre-check=0"
+  ],
+  "pragma"=>[
+    "no-cache"
+  ],
+  "access-control-allow-origin"=>[
+    "*"
+  ],
+  "x-fastcgi-cache"=>[
+    "MISS"
+  ]
+}

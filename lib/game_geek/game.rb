@@ -1,4 +1,4 @@
-class Game
+class BoardGame
   # Uses BGG API 2
   # /xmlapi2/thing?id=:bgg_id
 
