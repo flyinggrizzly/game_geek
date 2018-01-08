@@ -46,5 +46,9 @@ class GeekSite
       }
 
     end
+
+    def retrieve_bgg_item_ratings(bgg_id)
+      # "base_uri/thing?id=#{bgg_id}&ratingcomments=1"
+    end
   end
 end
