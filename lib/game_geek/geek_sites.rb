@@ -5,9 +5,16 @@ class GeekSite
   include HTTParty
 
   class << self
-    base_uri = 'https://www.boardgamegeek.com/xmlapi2'.freeze
+    API_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi2'.freeze
+    GEEK_THINGS = %w[boardgame \
+                     boardgamedesigner \
+                     rpg \
+                     rpgdesigner \
+                     videogame \
+                     videogamedesigner].freeze
 
-    def search_games
+    def search_boardgames(query)
+      search_by_type(query, 'boardgame')
     end
 
     private
@@ -15,16 +22,11 @@ class GeekSite
     # Searches
     def search_by_type(query, type)
       results = []
-      unless %w[boardgame,
-                boardgamedesigner,
-                rpg,
-                rpgdesigner,
-                videogame,
-                videogamedesigner].include? type
+      unless GEEK_THINGS.include? type
         raise 'Invalid search type'
       end
 
-      request = HTTParty.get("#{base_uri}/search?query=#{query}&type=#{type}").parsed_response
+      request = HTTParty.get("#{API_ORIGIN }/search?query=#{query}&type=#{type}").parsed_response
       request['items']['item'].each do |game|
         results << { id: game['id'], title: game['name']['value'] }
       end
@@ -39,7 +41,7 @@ class GeekSite
         raise 'Invalid item type'
       end
 
-      request = HTTParty.get("#{base_uri}/thing?id=#{bgg_id}&type=#{type}").parsed_response
+      request = HTTParty.get("#{API_ORIGIN }/thing?id=#{bgg_id}&type=#{type}").parsed_response
 
       {
         # Return this hash
@@ -48,7 +50,7 @@ class GeekSite
     end
 
     def retrieve_bgg_item_ratings(bgg_id)
-      # "base_uri/thing?id=#{bgg_id}&ratingcomments=1"
+      # "API_ORIGIN /thing?id=#{bgg_id}&ratingcomments=1"
     end
   end
 end
