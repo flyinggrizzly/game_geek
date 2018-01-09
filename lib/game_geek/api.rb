@@ -57,7 +57,7 @@ class GameGeekApi
 
       request = HTTParty.get("#{API_2_ORIGIN }/search?query=#{query}&type=#{type}").parsed_response
       request['items']['item'].each do |game|
-        results << { id: game['id'], title: game['name']['value'] }
+        results << { id: game['id'], title: game['name']['value'], type: type }
       end
       results
     end
