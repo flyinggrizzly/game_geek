@@ -1,10 +1,10 @@
 require 'httparty'
 require 'nokogiri'
-require_relative 'bgg_item_maps'
+require_relative 'bgg_map'
 
 class GameGeekApi
   include HTTParty
-  include BGGItemMaps
+  include BggMap
 
   class << self
     API_2_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi2'.freeze
@@ -70,9 +70,9 @@ class GameGeekApi
 
       mapped = {}
       if type.eql?('boardgame')
-        mapped = BGGItemMappings::BoardgameMap.parse(data: response_data, bgg_id: bgg_id)
+        mapped = BggMap::Thing::BoardgameMap.parse(data: response_data, bgg_id: bgg_id)
       elsif type.eql?('rpgitem')
-        mapped = BGGItemMappings::RpgMap.parse(data: response_data, bgg_id: bgg_id)
+        mapped = BggMap::Thing::RpgMap.parse(data: response_data, bgg_id: bgg_id)
       end
 
       mapped[:response_body] = response.body if include_original_response
