@@ -3,6 +3,18 @@
 # into a module for maintenance and decoupling.
 module BggMap
 
+  module Search
+    extend self
+
+    def parse(data:, search_type:)
+      results = []
+      data['items']['item'].each do |item|
+        results << { id: item['id'], title: item['name']['value'], type: search_type }
+      end
+      results
+    end
+  end
+
   module Thing
     # Share parsing methods for BGG Items' data structures.
     module Helpers
@@ -33,13 +45,14 @@ module BggMap
     end
 
 
-    # Datamap for BGG API's boardgame items.
+    # Datamap for BGG API's boarditem items.
     # Does not yet return BGG's suggested number of players, or 
     # suggested age.
     module BoardgameMap
       extend self
 
       def parse(data:, bgg_id:)
+        data = data['items']['item']
         {
           bgg_id:           bgg_id,
           name:             BggMap::Thing::Helpers.extract_names_by_type(data, 'primary'),

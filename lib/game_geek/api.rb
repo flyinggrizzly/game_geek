@@ -53,20 +53,17 @@ class GameGeekApi
     # Searches
     def search_by_type(query, type)
       raise 'Invalid search type' unless GEEK_THINGS.include? type
-      results = []
 
       request = HTTParty.get("#{API_2_ORIGIN }/search?query=#{query}&type=#{type}").parsed_response
-      request['items']['item'].each do |game|
-        results << { id: game['id'], title: game['name']['value'], type: type }
-      end
-      results
+      BggMap::Search.parse(data: request, search_type: type)
     end
 
+    # Retrieves data on a particular item from the API
     def retrieve_bgg_item_data(bgg_id, type, include_original_response = false)
       raise 'Invalid item type' unless GEEK_THINGS.include? type
 
       response      = HTTParty.get("#{API_2_ORIGIN }/thing?id=#{bgg_id}&type=#{type}")
-      response_data = response.parsed_response['items']['item']
+      response_data = response.parsed_response
 
       mapped = {}
       if type.eql?('boardgame')
