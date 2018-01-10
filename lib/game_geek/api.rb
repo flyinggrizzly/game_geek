@@ -2,19 +2,19 @@ require 'httparty'
 require 'nokogiri'
 require_relative 'bgg_map'
 
-class GameGeekApi
-  include HTTParty
-  include BggMap
+module GameGeek
+  module API
+    include HTTParty
+    include BggMap
 
-  class << self
     API_2_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi2'.freeze
     API_1_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi'.freeze
     GEEK_THINGS   = %w[boardgame \
-                       boardgamedesigner \
-                       rpgitem \
-                       rpgdesigner \
-                       videogame \
-                       videogamedesigner].freeze
+                      boardgamedesigner \
+                      rpgitem \
+                      rpgdesigner \
+                      videogame \
+                      videogamedesigner].freeze
 
     # Searches the API, specifying only boardgame results should be returned
     def search_boardgames(query)
@@ -55,7 +55,7 @@ class GameGeekApi
       raise 'Invalid search type' unless GEEK_THINGS.include? type
 
       request = HTTParty.get("#{API_2_ORIGIN }/search?query=#{query}&type=#{type}").parsed_response
-      BggMap::Search.parse(data: request, search_type: type)
+      GameGeek::BggMap::Search.parse(data: request, search_type: type)
     end
 
     # Retrieves data on a particular item from the API
@@ -67,9 +67,9 @@ class GameGeekApi
 
       mapped = {}
       if type.eql?('boardgame')
-        mapped = BggMap::Thing::BoardgameMap.parse(data: response_data, bgg_id: bgg_id)
+        mapped = GameGeek::BggMap::Thing::BoardgameMap.parse(data: response_data, bgg_id: bgg_id)
       elsif type.eql?('rpgitem')
-        mapped = BggMap::Thing::RpgMap.parse(data: response_data, bgg_id: bgg_id)
+        mapped = GameGeek::BggMap::Thing::RpgMap.parse(data: response_data, bgg_id: bgg_id)
       end
 
       mapped[:response_body] = response.body if include_original_response
