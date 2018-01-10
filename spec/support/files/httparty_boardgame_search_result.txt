@@ -1,0 +1,54 @@
+# Original HTTParty response, retained just in case
+
+{
+  "items"=>{
+    "item"=>[
+      {
+        "name"=>{
+          "type"=>"primary",
+          "value"=>"Founders of Gloomhaven"
+        },
+        "yearpublished"=>{
+          "value"=>"2018"
+        },
+        "type"=>"boardgame",
+        "id"=>"214032"
+      },
+      {
+        "name"=>{
+          "type"=>"primary",
+          "value"=>"Gloomhaven"
+        },
+        "yearpublished"=>{
+          "value"=>"2017"
+        },
+        "type"=>"boardgame",
+        "id"=>"174430"
+      },
+      {
+        "name"=>{
+          "type"=>"primary",
+          "value"=>"Gloomhaven: Solo Scenarios"
+        },
+        "yearpublished"=>{
+          "value"=>"2017"
+        },
+        "type"=>"boardgame",
+        "id"=>"226868"
+      },
+      {
+        "name"=>{
+          "type"=>"primary",
+          "value"=>"Gloomhaven: The End of the World (Promo Scenario)"
+        },
+        "yearpublished"=>{
+          "value"=>"2017"
+        },
+        "type"=>"boardgame",
+        "id"=>"231934"
+      }
+    ],
+    "total"=>"4",
+    "termsofuse"=>"http://boardgamegeek.com/xmlapi/termsofuse"
+  }
+}
