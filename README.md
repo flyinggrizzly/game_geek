@@ -29,7 +29,7 @@ Instead of relying on you to know how BGG/RPGG/VGG classify and name their thing
 Use the API connector to search the API's things by type. It will return a hash array with each result's name, and ID, and type (which will correspond directly to the type you searched by):
 
 ```ruby
-GameGeekApi.search_boardgames('Gloomhaven')
+GameGeek::API.search_boardgames('Gloomhaven')
 => [{:id=>"214032", :title=>"Founders of Gloomhaven", :type=>"boardgame"},
     {:id=>"174430", :title=>"Gloomhaven", :type=>"boardgame"},
     {:id=>"226868", :title=>"Gloomhaven: Solo Scenarios", :type=>"boardgame"},
@@ -43,14 +43,14 @@ The other available search methods are `GameGeekApi.search_rpgs` and `GameGeekAp
 To retrieve the data for an API thing, call the relevant `#get_` method, and supply the BGG ID parameter (presumably retrieved from search, but this is also in every BGG thing's URL on the sites). You can optionally retrieve the original XML response from the API by passing `true` to the method.
 
 ```ruby
-GameGeekApi.get_boardgame(bgg_id: 174430)
+GameGeek::API.get_boardgame(bgg_id: 174430)
 => { giant: "hash" }
 
-GameGeekApi.get_rpg(bgg_id: 162994, include_original_response: true)
+GameGeek::API.get_rpg(bgg_id: 162994, include_original_response: true)
 => { giant: "hash", response_body: "so much XML" }
 ```
 
-If you want to see exactly what data is returned in the hash, best check out the [data mapping modules](/lib/game_geek/bgg_item_maps.rb). At the moment, the only notable data not being returned that's available are the aggregated scores and ratings. This will come.
+If you want to see exactly what data is returned in the hash, best check out the [data mapping modules](/lib/game_geek/bgg_map.rb). At the moment, the only notable data not being returned that's available are the aggregated scores and ratings. This will come.
 
 ## Known limitations
 
