@@ -1,4 +1,6 @@
 require 'bundler/setup'
+require 'webmock/rspec'
+require 'byebug'
 require 'game_geek'
 
 RSpec.configure do |config|

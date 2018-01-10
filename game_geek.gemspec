@@ -37,4 +37,5 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec',    '~> 3.0'
   spec.add_development_dependency 'byebug',   '~> 9.1'
   spec.add_development_dependency 'coderay',  '~> 1.1'
+  spec.add_development_dependency 'webmock',  '~> 3.2'
 end

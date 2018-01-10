@@ -4,8 +4,7 @@ require_relative 'bgg_map'
 
 module GameGeek
   module API
-    include HTTParty
-    include BggMap
+    extend self
 
     API_2_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi2'.freeze
     API_1_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi'.freeze
@@ -18,6 +17,7 @@ module GameGeek
 
     # Searches the API, specifying only boardgame results should be returned
     def search_boardgames(query)
+      raise 'Search query must not be empty' if query.to_s.empty?
       search_by_type(query, 'boardgame')
     end
 
@@ -54,8 +54,10 @@ module GameGeek
     def search_by_type(query, type)
       raise 'Invalid search type' unless GEEK_THINGS.include? type
 
-      request = HTTParty.get("#{API_2_ORIGIN}/search?query=#{query}&type=#{type}").parsed_response
-      GameGeek::BggMap::Search.parse(data: request, search_type: type)
+      request = HTTParty.get("#{API_2_ORIGIN}/search?query=#{query}&type=#{type}")
+      raise 'Board Game Geek is not available' unless request.success?
+      parsed_request = request.parsed_response
+      GameGeek::BggMap::Search.parse(data: parsed_request, search_type: type)
     end
 
     # Retrieves data on a particular item from the API
