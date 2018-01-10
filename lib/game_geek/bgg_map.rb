@@ -47,7 +47,7 @@ module GameGeek
         # XML response, and a desired type, returns a string array of the values of
         # those link attributes.
         def extract_link_values_by_type(data, link_type)
-          raise "Link type is invalid" unless BGG_LINK_TYPES.include? link_type
+          raise 'Link type is invalid' unless BGG_LINK_TYPES.include? link_type
 
           links = data['items']['item']['link']
           links_of_type = links.select { |link| link['type'].eql?(link_type) }

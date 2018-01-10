@@ -10,11 +10,11 @@ module GameGeek
     API_2_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi2'.freeze
     API_1_ORIGIN  = 'https://www.boardgamegeek.com/xmlapi'.freeze
     GEEK_THINGS   = %w[boardgame \
-                      boardgamedesigner \
-                      rpgitem \
-                      rpgdesigner \
-                      videogame \
-                      videogamedesigner].freeze
+                       boardgamedesigner \
+                       rpgitem \
+                       rpgdesigner \
+                       videogame \
+                       videogamedesigner].freeze
 
     # Searches the API, specifying only boardgame results should be returned
     def search_boardgames(query)
@@ -54,7 +54,7 @@ module GameGeek
     def search_by_type(query, type)
       raise 'Invalid search type' unless GEEK_THINGS.include? type
 
-      request = HTTParty.get("#{API_2_ORIGIN }/search?query=#{query}&type=#{type}").parsed_response
+      request = HTTParty.get("#{API_2_ORIGIN}/search?query=#{query}&type=#{type}").parsed_response
       GameGeek::BggMap::Search.parse(data: request, search_type: type)
     end
 

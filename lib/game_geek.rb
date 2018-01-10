@@ -1,6 +1,6 @@
-require "game_geek/version"
-require "game_geek/api"
-require "game_geek/bgg_map"
+require 'game_geek/version'
+require 'game_geek/api'
+require 'game_geek/bgg_map'
 
 module GameGeek
   class Boardgame; end
