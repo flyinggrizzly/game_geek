@@ -20,11 +20,19 @@ module GameGeek
       module Helpers
         extend self
 
+        BGG_LINK_TYPES = %w[boardgamecategory
+                            boardgamemechanic
+                            boardgamefamily
+                            boardgameexpansion
+                            boardgamedesigner
+                            boardgameartist
+                            boardgamepublisher].freeze
+
         # Given the items['item'] attribute produced by HTTParty from a BGG API
         # XML response as data, and a type of name to extract, returns either a
         # string for the primary name, or an array of strings of alternate names.
         def extract_names_by_type(data, type)
-          names = data['name'].select { |name| name['type'] == type }
+          names = data['items']['item']['name'].select { |name| name['type'] == type }
           return nil if names.empty?
 
           # Return a string if there is one name, or array of strings
@@ -38,7 +46,10 @@ module GameGeek
         # Given a JSON array of link attributes produced by HTTParty from a BGG API
         # XML response, and a desired type, returns a string array of the values of
         # those link attributes.
-        def extract_link_values_by_type(links, link_type)
+        def extract_link_values_by_type(data, link_type)
+          raise "Link type is invalid" unless BGG_LINK_TYPES.include? link_type
+
+          links = data['items']['item']['link']
           links_of_type = links.select { |link| link['type'].eql?(link_type) }
           links_of_type.map { |link| link['value'] }
         end
@@ -52,28 +63,28 @@ module GameGeek
         extend self
 
         def parse(data:, bgg_id:)
-          data = data['items']['item']
+          game = data['items']['item']
           {
             bgg_id:           bgg_id,
             name:             GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'primary'),
             alternate_names:  GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'alternate'),
-            description:      data['description'],
-            year_published:   data['yearpublished']['value'],
-            min_players:      data['minplayers']['value'],
-            max_players:      data['maxplayers']['value'],
+            description:      game['description'],
+            year_published:   game['yearpublished']['value'],
+            min_players:      game['minplayers']['value'],
+            max_players:      game['maxplayers']['value'],
             # suggested_num_players: TODO: work out how this is calculated
-            playing_time:     data['playingtime']['value'],
-            min_playing_time: data['minplaytime']['value'],
-            max_playing_time: data['maxplaytime']['value'],
-            min_age:          data['minage']['value'],
+            playing_time:     game['playingtime']['value'],
+            min_playing_time: game['minplaytime']['value'],
+            max_playing_time: game['maxplaytime']['value'],
+            min_age:          game['minage']['value'],
             # suggested_age: TODO: work out how this is calculated
-            categories:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgamecategory'),
-            mechanics:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgamemechanic'),
-            families:         GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgamefamily'),
-            expansions:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgameexpansion'),
-            designers:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgamedesigner'),
-            artists:          GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgameartist'),
-            publishers:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data['link'], 'boardgamepublisher')
+            categories:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamecategory'),
+            mechanics:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamemechanic'),
+            families:         GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamefamily'),
+            expansions:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgameexpansion'),
+            designers:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamedesigner'),
+            artists:          GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgameartist'),
+            publishers:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamepublisher')
           }
         end
       end
