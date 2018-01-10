@@ -8,10 +8,10 @@ RSpec.describe GameGeek::API do
           # This also silently tests that HTTParty's #parsed_response method has not changed
           stub_successful_api_search_response
 
-          search = GameGeek::API.search_boardgames('Gloomhaven')
+          search_result = GameGeek::API.search_boardgames('Gloomhaven')
 
-          expect(search).to be_an_instance_of(Array)
-          expect(search[0]).to be_an_instance_of(Hash)
+          expect(search_result).to be_an_instance_of(Array)
+          expect(search_result[0]).to be_an_instance_of(Hash)
         end
       end
 
@@ -39,7 +39,6 @@ RSpec.describe GameGeek::API do
 
   def stub_successful_api_search_response
     stub_request(:get, 'https://www.boardgamegeek.com/xmlapi2/search?query=Gloomhaven&type=boardgame')
-      .with(headers: { 'Accept' => '*/*', 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'User-Agent' => 'Ruby' })
       .to_return(status:  200,
                  body:    File.open('spec/support/files/api_xml_search_response.xml'),
                  headers: { 'Content-Type' => 'text/xml; charset=UTF-8' })
