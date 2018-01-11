@@ -45,7 +45,7 @@ module GameGeek
 
     # Retrieves ratings and comments for a BGG resource
     def retrieve_bgg_item_ratings(bgg_id)
-      # "API_ORIGIN /thing?id=#{bgg_id}&ratingcomments=1"
+      # "API_2_ORIGIN/thing?id=#{bgg_id}&ratingcomments=1"
     end
 
     private
@@ -54,28 +54,32 @@ module GameGeek
     def search_by_type(query, type)
       raise 'Invalid search type' unless GEEK_THINGS.include? type
 
-      request = HTTParty.get("#{API_2_ORIGIN}/search?query=#{query}&type=#{type}")
-      raise 'Board Game Geek is not available' unless request.success?
-      parsed_request = request.parsed_response
-      GameGeek::BggMap::Search.parse(data: parsed_request, search_type: type)
+      response = HTTParty.get("#{API_2_ORIGIN}/search?query=#{query}&type=#{type}")
+      throw_error_if_api_unavailable(response)
+      parsed_response = response.parsed_response
+      GameGeek::BggMap::Search.parse(data: parsed_response, search_type: type)
     end
 
     # Retrieves data on a particular item from the API
     def retrieve_bgg_item_data(bgg_id, type, include_original_response = false)
       raise 'Invalid item type' unless GEEK_THINGS.include? type
 
-      response      = HTTParty.get("#{API_2_ORIGIN }/thing?id=#{bgg_id}&type=#{type}")
-      response_data = response.parsed_response
+      response = HTTParty.get("#{API_2_ORIGIN }/thing?id=#{bgg_id}&type=#{type}")
+      throw_error_if_api_unavailable(response)
+      parsed_response = response.parsed_response
 
       mapped = {}
       if type.eql?('boardgame')
-        mapped = GameGeek::BggMap::Thing::BoardgameMap.parse(data: response_data, bgg_id: bgg_id)
+        mapped = GameGeek::BggMap::Thing::BoardgameMap.parse(parsed_response)
       elsif type.eql?('rpgitem')
-        mapped = GameGeek::BggMap::Thing::RpgMap.parse(data: response_data, bgg_id: bgg_id)
+        mapped = GameGeek::BggMap::Thing::RpgMap.parse(parsed_response)
       end
 
-      mapped[:response_body] = response.body if include_original_response
-      mapped
+      include_original_response ? mapped.merge({ response_body: response.body }) : mapped
+    end
+
+    def throw_error_if_api_unavailable(response)
+      raise 'Board Game Geek is not available' unless response.success?
     end
   end
 end

@@ -62,10 +62,10 @@ module GameGeek
       module BoardgameMap
         extend self
 
-        def parse(data:, bgg_id:)
+        def parse(data)
           game = data['items']['item']
           {
-            bgg_id:           bgg_id,
+            bgg_id:           game['id'].to_i,
             name:             GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'primary'),
             alternate_names:  GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'alternate'),
             description:      game['description'],

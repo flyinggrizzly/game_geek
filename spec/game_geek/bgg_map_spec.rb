@@ -48,5 +48,31 @@ RSpec.describe GameGeek::BggMap do
         end
       end
     end
+
+    describe '::BoardgameMap' do
+      it 'responds to .parse' do
+        expect(GameGeek::BggMap::Thing::BoardgameMap).to respond_to(:parse)
+      end
+
+      describe '.parse' do
+        context 'provided with valid parameters' do
+          mapped = GameGeek::BggMap::Thing::BoardgameMap.parse(
+                                            JSON.parse(
+                                            File.read('spec/support/files/httparty_boardgame_retrieval_result.json')))
+                                            .to_h
+          it 'returns the BGG ID as an integer in the hash' do
+            expect(mapped[:bgg_id]).to eq(174430)
+          end
+
+          it 'returns the game name in the hash' do
+            expect(mapped[:name]).to eq('Gloomhaven')
+          end
+
+          it 'returns an array of alternate names in the hash' do
+            expect(mapped[:alternate_names]).to be_an_instance_of(Array)
+          end
+        end
+      end
+    end
   end
 end
