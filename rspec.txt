@@ -1,0 +1,90 @@
+
+GameGeek::API
+  when it can connect to the BGG API
+    .search_boardgames
+      with a valid search parameter
+        the parameter has results
+[32m          returns an array of hashes[0m
+        the parameter returns no results
+[32m          returns an empty array[0m
+      without a valid search parameter
+[32m        raises an error that a search parameter is required[0m
+    .get_boardgame
+      when provided with a valid ID parameter
+        when the ID retrieves an object from the API
+[32m          returns a hash of boardgame data[0m
+[32m          includes a useful status message that the retrieval was a success[0m
+          when the original response is requested
+[32m            includes the XML response in the hash[0m
+        when the ID does not retrieve an object from the API
+[32m          returns a response that no item was found[0m
+    .retrieve_bgg_item_ratings
+      when given a valid game id
+[33m        gets a count of available ratings (PENDING: Not yet implemented)[0m
+[33m        returns an overall score (PENDING: Not yet implemented)[0m
+[33m        provides a link to read the rating comments on BGG (PENDING: Not yet implemented)[0m
+        when there are 100 or fewer ratings
+[33m          gets all ratings (PENDING: Not yet implemented)[0m
+        when there are more than 100 ratings
+[33m          makes multiple requests to get all ratings (PENDING: Not yet implemented)[0m
+  when it cannot connect to the BGG API
+[32m    raises an error that the API is not available[0m
+
+GameGeek::BggMap
+  ::Search
+    .parse
+[32m      parses search results and returns an array of hashes[0m
+  ::Thing
+    ::Helpers
+      .extract_names_by_type
+[32m        returns a string for name types with one instance[0m
+[32m        returns an array of strings for name types with multiple instances[0m
+      .extract_link_values_by_type
+[32m        returns an array of strings of the requested values[0m
+[32m        raises an error if it receives an invalid type[0m
+    ::BoardgameMap
+[32m      responds to .parse[0m
+      .parse
+        provided with valid parameters
+[32m          returns the BGG ID as an integer in the hash[0m
+[32m          returns the game name in the hash[0m
+[32m          returns an array of alternate names in the hash[0m
+
+GameGeek
+[32m  has a version number[0m
+[32m  has an API connector[0m
+[32m  can instantiate boardgames[0m
+[32m  has a map of the BGG API responses[0m
+  ::BggMap
+[32m    maps search responses[0m
+[32m    maps BGG thing responses[0m
+    ::Thing
+[32m      provides helpers[0m
+[32m      maps boardgame thing responses[0m
+
+Pending: (Failures listed here are expected and do not affect your suite's status)
+[33m
+  1) GameGeek::API when it can connect to the BGG API .retrieve_bgg_item_ratings when given a valid game id gets a count of available ratings[0m
+     [36m# Not yet implemented[0m
+[36m     # ./spec/game_geek/api_spec.rb:79
+[0m[33m
+  2) GameGeek::API when it can connect to the BGG API .retrieve_bgg_item_ratings when given a valid game id returns an overall score[0m
+     [36m# Not yet implemented[0m
+[36m     # ./spec/game_geek/api_spec.rb:80
+[0m[33m
+  3) GameGeek::API when it can connect to the BGG API .retrieve_bgg_item_ratings when given a valid game id provides a link to read the rating comments on BGG[0m
+     [36m# Not yet implemented[0m
+[36m     # ./spec/game_geek/api_spec.rb:81
+[0m[33m
+  4) GameGeek::API when it can connect to the BGG API .retrieve_bgg_item_ratings when given a valid game id when there are 100 or fewer ratings gets all ratings[0m
+     [36m# Not yet implemented[0m
+[36m     # ./spec/game_geek/api_spec.rb:83
+[0m[33m
+  5) GameGeek::API when it can connect to the BGG API .retrieve_bgg_item_ratings when given a valid game id when there are more than 100 ratings makes multiple requests to get all ratings[0m
+     [36m# Not yet implemented[0m
+[36m     # ./spec/game_geek/api_spec.rb:86
+[0m
+
+Finished in 0.12483 seconds (files took 0.40704 seconds to load)
+[33m30 examples, 0 failures, 5 pending[0m
+

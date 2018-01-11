@@ -46,6 +46,8 @@ module GameGeek
     # Retrieves ratings and comments for a BGG resource
     def retrieve_bgg_item_ratings(bgg_id)
       # "API_2_ORIGIN/thing?id=#{bgg_id}&ratingcomments=1"
+      # - request once, get number of ratings
+      # - make additional requests of 100 comments until all are retrieved
     end
 
     private
@@ -64,7 +66,7 @@ module GameGeek
     def retrieve_bgg_item_data(bgg_id, type, include_original_response = false)
       raise 'Invalid item type' unless GEEK_THINGS.include? type
 
-      response = HTTParty.get("#{API_2_ORIGIN }/thing?id=#{bgg_id}&type=#{type}")
+      response = HTTParty.get("#{API_2_ORIGIN}/thing?id=#{bgg_id}&type=#{type}")
       throw_error_if_api_unavailable(response)
       parsed_response = response.parsed_response
 

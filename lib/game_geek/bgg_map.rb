@@ -7,6 +7,7 @@ module GameGeek
       extend self
 
       def parse(data:, search_type:)
+        return [] unless data['items']['total'].to_i > 0
         results = []
         data['items']['item'].each do |item|
           results << { id: item['id'], title: item['name']['value'], type: search_type }
@@ -63,29 +64,35 @@ module GameGeek
         extend self
 
         def parse(data)
-          game = data['items']['item']
-          {
-            bgg_id:           game['id'].to_i,
-            name:             GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'primary'),
-            alternate_names:  GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'alternate'),
-            description:      game['description'],
-            year_published:   game['yearpublished']['value'],
-            min_players:      game['minplayers']['value'],
-            max_players:      game['maxplayers']['value'],
-            # suggested_num_players: TODO: work out how this is calculated
-            playing_time:     game['playingtime']['value'],
-            min_playing_time: game['minplaytime']['value'],
-            max_playing_time: game['maxplaytime']['value'],
-            min_age:          game['minage']['value'],
-            # suggested_age: TODO: work out how this is calculated
-            categories:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamecategory'),
-            mechanics:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamemechanic'),
-            families:         GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamefamily'),
-            expansions:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgameexpansion'),
-            designers:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamedesigner'),
-            artists:          GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgameartist'),
-            publishers:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamepublisher')
-          }
+          if game = data['items']['item']
+            {
+              status:           'found',
+              bgg_id:           game['id'].to_i,
+              name:             GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'primary'),
+              alternate_names:  GameGeek::BggMap::Thing::Helpers.extract_names_by_type(data, 'alternate'),
+              description:      game['description'],
+              year_published:   game['yearpublished']['value'],
+              min_players:      game['minplayers']['value'],
+              max_players:      game['maxplayers']['value'],
+              # suggested_num_players: TODO: work out how this is calculated
+              playing_time:     game['playingtime']['value'],
+              min_playing_time: game['minplaytime']['value'],
+              max_playing_time: game['maxplaytime']['value'],
+              min_age:          game['minage']['value'],
+              # suggested_age: TODO: work out how this is calculated
+              categories:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamecategory'),
+              mechanics:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamemechanic'),
+              families:         GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamefamily'),
+              expansions:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgameexpansion'),
+              designers:        GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamedesigner'),
+              artists:          GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgameartist'),
+              publishers:       GameGeek::BggMap::Thing::Helpers.extract_link_values_by_type(data, 'boardgamepublisher')
+            }
+          else
+            # if we can't assign a game, nothing was passed through
+            # and the API module should have flagged a connection issue before now
+            { status: 'not found' }
+          end
         end
       end
 
